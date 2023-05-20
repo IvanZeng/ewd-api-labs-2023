@@ -14,6 +14,8 @@ const createRouter = (dependencies) => {
     router.route('/security/token').post(accountsController.authenticateAccount);
     router.route('/:id/favourite_actors').post(accountsController.addFavouriteActor);
     router.route('/:id/favourite_actors').get(accountsController.getFavouriteActors);
+    router.route('/:id/favourite_tv').post(accountsController.addFavouriteTv);
+    router.route('/:id/favourite_tv').get(accountsController.getFavouriteTv);
 
     return router;
 };

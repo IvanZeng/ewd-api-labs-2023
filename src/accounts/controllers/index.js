@@ -92,6 +92,25 @@ export default (dependencies) => {
           next(new Error(`Invalid Data ${err.message}`));
         }
       };
+      const addFavouriteTv = async (request, response, next) => {
+        try {
+          const { movieId } = request.body;
+          const id = request.params.id;
+          const account = await accountService.addFavouriteTv(id, movieId, dependencies);
+          response.status(200).json(account);
+        } catch (err) {
+          next(new Error(`Invalid Data ${err.message}`));
+        }
+      };
+      const getFavouriteTv = async (request, response, next) => {
+        try {
+          const id = request.params.id;
+          const favouriteTV = await accountService.getFavouriteTv(id, dependencies);
+          response.status(200).json(favouriteTV);
+        } catch (err) {
+          next(new Error(`Invalid Data ${err.message}`));
+        }
+      };
 
     return {
         createAccount,
@@ -103,6 +122,8 @@ export default (dependencies) => {
         getFavourites,
         addFavouriteActor,
         getFavouriteActors,
+        addFavouriteTv,
+        getFavouriteTv,
         verify
     };
 };

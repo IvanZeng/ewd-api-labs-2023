@@ -1,6 +1,6 @@
 export default class {
   constructor(
-    id = undefined, firstName, lastName, email, password, favouriteMovies = [], favouriteActors = []) {
+    id = undefined, firstName, lastName, email, password, favouriteMovies = [], favouriteActors = [], favouriteTvSeries  = []) {
       this.id = id;
       this.firstName = firstName;
       this.lastName = lastName;
@@ -8,5 +8,6 @@ export default class {
       this.password = password;
       this.favouriteMovies = favouriteMovies;
       this.favouriteActors = favouriteActors;
+      this.favouriteTvSeries  = favouriteTvSeries ;
   }
 }

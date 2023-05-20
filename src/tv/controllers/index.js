@@ -3,8 +3,8 @@ import tvSeriesService from "./../services";
 export default (dependencies) => {
 
   const getTvSeries = async (request, response) => {
-    const movieId = request.params.id;
-    const tvSeries = await tvSeriesService.getTvSeries(movieId, dependencies);
+    const tvId = request.params.id;
+    const tvSeries = await tvSeriesService.getTvSeries(tvId, dependencies);
     response.status(200).json(tvSeries);
   };
   const find = async (request, response) => {

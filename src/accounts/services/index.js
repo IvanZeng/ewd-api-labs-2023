@@ -59,5 +59,16 @@ export default {
         } else {
             return account;
         }
+      },
+      getFavouriteTv: async (accountId, { accountsRepository }) => {
+        const account = await accountsRepository.get(accountId);
+        return account.favouriteTvSeries;
+      },
+      addFavouriteTv: async (accountId, movieId, { accountsRepository }) => {
+        const account = await accountsRepository.get(accountId);
+        if (!account.favouriteTvSeries.includes(movieId)) {
+          account.favouriteTvSeries.push(movieId);
+        }
+        return await accountsRepository.merge(account);
       }
 };
