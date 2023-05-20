@@ -42,9 +42,9 @@ export default class extends AccountRepository {
   }
 
   async getByEmail(userEmail) {
-    const result = await this.model.findOne({ email: userEmail });
-    return new Account(result.id, result.firstName, result.lastName, result.email, result.password, result.favourites);
-  }
+    const result = await this.model.findOne({email: userEmail.toLowerCase()});
+    return new Account(result.id, result.firstName, result.lastName, result.email, result.password,result.favourites);
+}
 
   async find() {
     const accounts = await this.model.find();
