@@ -7,6 +7,7 @@ import createGenresRouter from './src/genres/routes';
 import db from './src/config/db';
 import errorHandler from './src/utils/ErrorHandler';
 import createActorsRouter from './src/actors/routes';
+import createTvSeriesRouter from './src/tv/routes';
 
 dotenv.config();
 db.init();
@@ -21,6 +22,7 @@ app.use('/api/accounts', createAccountsRouter(dependencies));
 app.use('/api/movies', createMoviesRouter(dependencies));
 app.use('/api/genres', createGenresRouter(dependencies));
 app.use('/api/actors', createActorsRouter(dependencies));
+app.use('/api/tv', createTvSeriesRouter(dependencies));
 app.use(errorHandler);
 app.listen(port, () => {
   console.info(`Server running at ${port}`);

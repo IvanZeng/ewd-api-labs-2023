@@ -25,6 +25,7 @@ export default (dependencies) => {
         const movies = await moviesService.getSimilar(movieId, query, dependencies);
         response.status(200).json(movies);
       };
+    
 
     
 
