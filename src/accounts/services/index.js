@@ -46,5 +46,18 @@ export default {
         } else {
             return account;
         }
-    }
+    },
+    getFavouriteActor: async (accountId, { accountsRepository }) => {
+        const account = await accountsRepository.get(accountId);
+        return account.favouriteActors;
+      },
+      addFavouriteActor: async (accountId, actorId, { accountsRepository }) => {
+        const account = await accountsRepository.get(accountId);
+        if (!account.favouriteActors.includes(actorId)) {
+          account.favouriteActors.push(actorId);
+          return await accountsRepository.merge(account);
+        } else {
+            return account;
+        }
+      }
 };

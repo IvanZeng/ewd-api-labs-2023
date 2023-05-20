@@ -73,14 +73,36 @@ export default (dependencies) => {
         }
     };
 
+    const addFavouriteActor = async (request, response, next) => {
+        try {
+          const { actorId } = request.body;
+          const id = request.params.id;
+          const account = await accountService.addFavouriteActor(id, actorId, dependencies);
+          response.status(200).json(account);
+        } catch (err) {
+          next(new Error(`Invalid Data ${err.message}`));
+        }
+      };
+      const getFavouriteActors = async (request, response, next) => {
+        try {
+          const id = request.params.id;
+          const favouriteAcotor = await accountService.getFavouriteActor(id, dependencies);
+          response.status(200).json(favouriteAcotor);
+        } catch (err) {
+          next(new Error(`Invalid Data ${err.message}`));
+        }
+      };
+
     return {
         createAccount,
         getAccount,
         listAccounts,
         updateAccount,
         authenticateAccount,
-        verify,
         addFavourite,
-        getFavourites
+        getFavourites,
+        addFavouriteActor,
+        getFavouriteActors,
+        verify
     };
 };
