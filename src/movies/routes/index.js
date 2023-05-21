@@ -7,12 +7,12 @@ const createMoviesRouter = (dependencies) => {
     const moviesController = MoviesController(dependencies);
     const accountsController = AccountsController(dependencies);
 
-    router.route('/*').all(accountsController.verify);
+    // router.route('/*').all(accountsController.verify);
     router.route('/').get(moviesController.find);
-    router.route('/:id').get(moviesController.getMovie);
+    router.route('/:id').get(accountsController.verify, moviesController.getMovie);
     router.route('/upcoming').get(moviesController.getUpcomingMovies);
-    router.route('/:id/similar').get(moviesController.getSimilar);
-    router.route('/:id/reviews').get(moviesController.getMovieReviews);
+    router.route('/:id/similar').get(accountsController.verify, moviesController.getSimilar);
+    router.route('/:id/reviews').get(accountsController.verify, moviesController.getMovieReviews);
 
 
 

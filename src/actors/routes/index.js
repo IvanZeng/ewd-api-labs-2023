@@ -7,14 +7,10 @@ const createActorsRouter = (dependencies) => {
   const actorsController = ActorsController(dependencies);
   const accountsController = AccountsController(dependencies);
 
-  router.route('/*')
-    .all(accountsController.verify);
+  // router.route('/*').all(accountsController.verify);
 
-  router.route('/:id')
-    .get(actorsController.getActor);
-
-  router.route('/')
-    .get(actorsController.find);
+  router.route('/:id').get(accountsController.verify, actorsController.getActor);
+  router.route('/').get(actorsController.find);
 
   return router;
 };
