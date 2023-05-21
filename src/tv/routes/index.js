@@ -11,6 +11,7 @@ const createTvSeriesRouter = (dependencies) => {
   router.route('/*').all(accountsController.verify);
   router.route('/:id').get(tvSeriesController.getTvSeries);
   router.route('/').get(tvSeriesController.find);
+  router.route('/:id/similar').get(tvSeriesController.getSimilar);
 
   return router;
 };

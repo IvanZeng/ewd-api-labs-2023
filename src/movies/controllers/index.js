@@ -25,6 +25,12 @@ export default (dependencies) => {
         const movies = await moviesService.getSimilar(movieId, query, dependencies);
         response.status(200).json(movies);
       };
+
+    const getMovieReviews = async (request, response) => {
+        const movieId = request.params.id;
+        const images = await moviesService.getMovieReviews(movieId, dependencies);
+        response.status(200).json(images);
+      };
     
 
     
@@ -34,5 +40,6 @@ export default (dependencies) => {
         find,
         getUpcomingMovies,
         getSimilar,
+        getMovieReviews
     };
 };
