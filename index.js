@@ -9,6 +9,7 @@ import errorHandler from './src/utils/ErrorHandler';
 import createActorsRouter from './src/actors/routes';
 import createTvSeriesRouter from './src/tv/routes';
 
+
 dotenv.config();
 db.init();
 
@@ -18,6 +19,7 @@ const port = process.env.PORT;
 
 
 app.use(express.json());
+
 app.use('/api/accounts', createAccountsRouter(dependencies));
 app.use('/api/movies', createMoviesRouter(dependencies));
 app.use('/api/genres', createGenresRouter(dependencies));

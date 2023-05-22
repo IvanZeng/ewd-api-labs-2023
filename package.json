@@ -4,6 +4,7 @@
   "description": "ewd labs 2022",
   "main": "index.js",
   "scripts": {
+    "swagger-autogen": "node ./swagger.js",
     "start": "nodemon --exec babel-node index.js",
     "test": "newman run ./tests/movies_collection.json -e ./tests/movies_environment.json --reporters htmlextra,cli --reporter-htmlextra-export ./tests/reports/report.html"
   },
@@ -26,6 +27,8 @@
     "joi": "^17.9.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.2.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.3",
     "uniqid": "^5.4.0"
   }
 }

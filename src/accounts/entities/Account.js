@@ -1,12 +1,12 @@
 export default class {
   constructor(
-    id = undefined, firstName, lastName, email, password, favouriteMovies = [], favouriteActors = [], favouriteTvSeries  = []) {
+    id = undefined, firstName, lastName, email, password, favourites = [], favouriteActors = [], favouriteTvSeries  = []) {
       this.id = id;
       this.firstName = firstName;
       this.lastName = lastName;
       this.email = email;
       this.password = password;
-      this.favouriteMovies = favouriteMovies;
+      this.favourites = favourites;
       this.favouriteActors = favouriteActors;
       this.favouriteTvSeries  = favouriteTvSeries ;
   }
